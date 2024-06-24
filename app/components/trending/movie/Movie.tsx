@@ -1,6 +1,6 @@
 import Image from '@/components/ui/image';
 import CircularVoteBar from '@/components/trending/movie/circularVoteBar';
-import { TMDB_BASE_IMAGE_URL } from '@/constants';
+import { TMDB_BASE_IMAGE_URL, POSTER_SIZES } from '@/constants';
 import { Movie as IMovie } from '@/interfaces';
 import { formatDate } from '@/utils';
 
@@ -12,7 +12,7 @@ export default function Movie({ movie }: MovieProps) {
   return (
     <div>
       <Image
-        src={`${TMDB_BASE_IMAGE_URL}/w342/${movie.poster_path}`}
+        src={`${TMDB_BASE_IMAGE_URL}/${POSTER_SIZES.w342}/${movie.poster_path}`}
         alt={movie.original_title}
         width={342}
         height={342}
@@ -23,7 +23,7 @@ export default function Movie({ movie }: MovieProps) {
         />
       </Image>
       <p className='font-bold mb-2'>{movie.title}</p>
-      <p>{formatDate(movie.release_date)}</p>
+      <p className='text-gray-500'>{formatDate(movie.release_date)}</p>
     </div>
   );
 }

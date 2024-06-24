@@ -14,12 +14,10 @@ export default function Trending() {
     <Movie key={`${movie.original_title}-${idx}`} movie={movie} />
   ));
 
-  console.log(movies);
-
   return (
     <div className='flex flex-col'>
-      <h1 className='text-[2rem] font-bold mb-8'>Trending</h1>
-      <div className='flex gap-[4rem] overflow-x-scroll'>{movieUI}</div>
+      <h1 className='text-[2rem] font-bold mb-4'>Trending</h1>
+      <div className='flex gap-[4rem] p-4 overflow-x-scroll'>{movieUI}</div>
     </div>
   );
 }

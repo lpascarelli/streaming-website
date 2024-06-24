@@ -13,6 +13,7 @@ const CircularVoteBar = ({
   const radius = 50;
   const circumference = 2 * Math.PI * radius;
   const offset = circumference - (vote / 10) * circumference;
+  const percentageVote = percentageFormatter(vote);
 
   return (
     <div className={`flex items-center justify-center ${className}`}>
@@ -31,7 +32,9 @@ const CircularVoteBar = ({
           cy='60'
         />
         <circle
-          className='text-blue-500'
+          className={
+            percentageVote >= '70%' ? 'text-green-500' : 'text-yellow-500'
+          }
           strokeWidth='10'
           strokeDasharray={circumference}
           strokeDashoffset={offset}
@@ -44,7 +47,7 @@ const CircularVoteBar = ({
         />
       </svg>
       <div className='absolute flex items-center justify-center w-32 h-32 text-xl font-bold'>
-        {percentageFormatter(vote)}
+        {percentageVote}
       </div>
     </div>
   );
