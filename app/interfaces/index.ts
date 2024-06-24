@@ -11,8 +11,8 @@ export interface Movie {
   release_date: string;
   title: string;
   video: false;
-  vote_average: string;
-  vote_count: string;
+  vote_average: number;
+  vote_count: number;
 }
 
 export interface Movies {

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import Trending from './components/trending/Trending';
+import Trending from './components/trending';
 
 export const metadata: Metadata = {
   title: 'Streaming website',

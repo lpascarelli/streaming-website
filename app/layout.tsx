@@ -3,7 +3,7 @@
 import { RecoilRoot } from 'recoil';
 import { Inter } from 'next/font/google';
 
-import Header from '@/components/header/Header';
+import Header from '@/components/header';
 
 import './globals.css';
 
