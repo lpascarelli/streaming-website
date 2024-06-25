@@ -2,12 +2,11 @@ import useSWR from "swr";
 import { useSetRecoilState, useRecoilValue } from "recoil";
 
 import { Movies } from "@/interfaces";
-import { moviesState, pageState } from "@/state/atoms";
+import { moviesState } from "@/state/atoms";
 
 export default function useMovies() {
-  const page = useRecoilValue(pageState);
   const setMovies = useSetRecoilState(moviesState);
-  const { error, isLoading } = useSWR(`/api/movies?page=${page}`, getMovies, {
+  const { error, isLoading } = useSWR(`/api/movies?page=1`, getMovies, {
     onSuccess: (data) => setMovies(data)
   });
 

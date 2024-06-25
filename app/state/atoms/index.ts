@@ -11,8 +11,3 @@ export const moviesState = atom<Movies>({
     total_results: 1,
   }
 });
-
-export const pageState = atom<number>({
-  key: 'pageState',
-  default: 1,
-});

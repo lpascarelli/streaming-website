@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 
-import Trending from './components/trending';
+import Popular from '@/components/popular';
+import Trending from '@/components/trending';
 
 export const metadata: Metadata = {
   title: 'Streaming website',
@@ -12,6 +13,7 @@ export default function Home() {
   return (
     <div className='container mx-auto p-5'>
       <Trending />
+      <Popular />
     </div>
   );
 }
