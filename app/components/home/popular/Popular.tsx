@@ -1,12 +1,7 @@
-'use client';
-
 import { useRecoilValue } from 'recoil';
 
-import Movie from '@/components/popular/movie';
-import Error from '@/components/ui/error';
-import Loading from '@/components/ui/loading';
+import Movie from '@/components/home/popular/movie';
 import ScrollablePanel from '@/components/ui/scrollablePanel';
-import useMovies from '@/hooks/useMovies';
 import { Movies as IMovies } from '@/interfaces';
 import { moviesState } from '@/state/atoms';
 
@@ -15,20 +10,9 @@ interface MoviesProps {
 }
 
 export default function Popular() {
-  const { error, isLoading } = useMovies();
   const movies = useRecoilValue(moviesState);
 
-  if (error) {
-    return (
-      <Error text='Something went wrong while loading your content. Please try again later' />
-    );
-  }
-
-  return isLoading ? (
-    <div className='flex justify-center'>
-      <Loading />
-    </div>
-  ) : (
+  return (
     <ScrollablePanel
       title='Popular movies'
       content={<Movies movies={movies} />}

@@ -1,5 +1,5 @@
 import Image from '@/components/ui/image';
-import CircularVoteBar from '@/components/popular/movie/circularVoteBar';
+import CircularVoteBar from '@/components/home/popular/movie/circularVoteBar';
 import { TMDB_BASE_IMAGE_URL, POSTER_SIZES } from '@/constants';
 import { Movie as IMovie } from '@/interfaces';
 import { formatDate } from '@/utils';
