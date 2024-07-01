@@ -1,28 +1,33 @@
 'use client';
 
-import Popular from '@/components/home/popular';
-import Trending from '@/components/home/trending';
+import PopularMovies from '@/components/home/popular/movies';
+import Trending from '@/components/home/trendings';
 import useMovies from '@/hooks/useMovies';
+import useTrendings from '@/hooks/useTrendings';
 import Error from '@/components/ui/error';
 import Loading from '@/components/ui/loading/Loading';
 
 export default function Home() {
-  const { error, isLoading } = useMovies();
+  const { error: errorMovies, isLoading: isLoadingMovies } = useMovies();
+  const { error: errorTrendings, isLoading: isLoadingTrendings } = useTrendings(
+    'all',
+    'day'
+  );
 
-  if (error) {
+  if (errorMovies || errorTrendings) {
     return (
       <Error text='Something went wrong while loading your content. Please try again later' />
     );
   }
 
-  return isLoading ? (
+  return isLoadingMovies || isLoadingTrendings ? (
     <div className='flex justify-center p-5'>
       <Loading />
     </div>
   ) : (
     <div className='container mx-auto p-5'>
       <Trending />
-      <Popular />
+      <PopularMovies />
     </div>
   );
 }

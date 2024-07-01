@@ -1,7 +1,7 @@
 import useSWR from "swr";
-import { useSetRecoilState, useRecoilValue } from "recoil";
+import { useSetRecoilState } from "recoil";
 
-import { Movies } from "@/interfaces";
+import { MediaContent } from "@/interfaces";
 import { moviesState } from "@/state/atoms";
 
 export default function useMovies() {
@@ -19,7 +19,7 @@ export default function useMovies() {
 
 async function getMovies(url: string) {
   const response = await fetch(url);
-  const movies: Movies = await response.json();
+  const movies: MediaContent = await response.json();
 
   return movies;
 }

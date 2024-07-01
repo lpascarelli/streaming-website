@@ -1,15 +1,15 @@
 import { useRecoilValue } from 'recoil';
 
-import Movie from '@/components/home/popular/movie';
+import MediaContent from '@/components/ui/mediaContent';
 import ScrollablePanel from '@/components/ui/scrollablePanel';
-import { Movies as IMovies } from '@/interfaces';
+import { MediaContent as IMediaContent } from '@/interfaces';
 import { moviesState } from '@/state/atoms';
 
 interface MoviesProps {
-  movies: IMovies;
+  movies: IMediaContent;
 }
 
-export default function Popular() {
+export default function PopularMovies() {
   const movies = useRecoilValue(moviesState);
 
   return (
@@ -22,5 +22,5 @@ export default function Popular() {
 
 const Movies = ({ movies }: MoviesProps) =>
   movies.results.map((movie, idx) => (
-    <Movie key={`${movie.original_title}-${idx}`} movie={movie} />
+    <MediaContent key={`${movie.original_title}-${idx}`} content={movie} />
   ));

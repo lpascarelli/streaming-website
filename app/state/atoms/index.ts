@@ -1,8 +1,8 @@
 import { atom } from "recoil";
 
-import { Movies } from "@/interfaces";
+import { MediaContent } from "@/interfaces";
 
-export const moviesState = atom<Movies>({
+export const moviesState = atom<MediaContent>({
   key: 'moviesState',
   default: {
     page: 1,
@@ -10,4 +10,14 @@ export const moviesState = atom<Movies>({
     total_pages: 1,
     total_results: 1,
   }
+});
+
+export const trendingsState = atom<MediaContent>({
+  key: 'trendingsState',
+  default: {
+    page: 1,
+    results: [],
+    total_pages: 1,
+    total_results: 1,
+  },
 });

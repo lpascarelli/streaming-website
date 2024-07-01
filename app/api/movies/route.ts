@@ -1,5 +1,5 @@
 import { TMDB_BASE_URL } from "@/constants";
-import { Movies } from "@/interfaces";
+import { MediaContent } from "@/interfaces";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -20,7 +20,7 @@ export async function GET(request: Request) {
         throw new Error();
       }
 
-      const movies: Movies = await fetchedMovies.json();
+      const movies: MediaContent = await fetchedMovies.json();
 
       return Response.json({ ...movies });
     } catch (error) {
