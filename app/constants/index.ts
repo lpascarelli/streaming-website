@@ -1,5 +1,6 @@
 export const TMDB_BASE_URL = 'https://api.themoviedb.org/3';
 export const TMDB_BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/';
+export const MAX_STR_LENGTH = 30;
 
 export const BACKDROP_SIZES = {
   w300: 'w300',

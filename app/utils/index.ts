@@ -1,3 +1,5 @@
+import { MAX_STR_LENGTH } from "@/constants";
+
 export function percentageFormatter(num: number) {
   return new Intl.NumberFormat('default', {
     style: 'percent',
@@ -11,4 +13,12 @@ export function formatDate(date: string) {
   const options: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'long', year: 'numeric' };
 
   return newDate.toLocaleDateString('en-GB', options);
+}
+
+export function truncateString(str: string) {
+  if (str.length <= MAX_STR_LENGTH) {
+    return str;
+  }
+
+  return str.slice(0, MAX_STR_LENGTH - 3) + '...';
 }
