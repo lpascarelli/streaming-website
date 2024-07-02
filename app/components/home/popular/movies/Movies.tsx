@@ -22,5 +22,5 @@ export default function PopularMovies() {
 
 const Movies = ({ movies }: MoviesProps) =>
   movies.results.map((movie, idx) => (
-    <MediaContent key={`${movie.original_title}-${idx}`} content={movie} />
+    <MediaContent key={`${movie.id}-${idx}`} content={movie} />
   ));
